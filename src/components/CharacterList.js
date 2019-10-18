@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import styled from 'styled-components'
 import CharacterCard from './CharacterCard'
 
 export default function CharacterList() {
+  const CharacterList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  `
+
   // TODO: Add useState to track data from useEffect
   const [characters, setCharacters] = useState([])
   const [searchField, setSearchField] = useState('')
@@ -34,19 +40,26 @@ export default function CharacterList() {
 
 
   return (
-    <section className="character-list">
+    <CharacterList>
       <form>
-        <input 
+        <label>Search</label>
+        <input
+        type='text' 
         name='search-input'
         id='search-input'
         placeholder='Search Characters'
         value={searchField}
         onChange={handleSearch}
+        autoFocus={true}
         />
       </form>
-      {filteredCharacters.map(char => (
-        <CharacterCard char={char} key={char.id} />
-      ))}
-    </section>
+      {filteredCharacters.map(char => {
+        return (
+          <CharacterCard char={char} key={char.id} />
+        )
+      })}
+    </CharacterList>
   );
 }
+
+
