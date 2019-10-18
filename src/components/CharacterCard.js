@@ -13,10 +13,11 @@ export default function CharacterCard( {char} ) {
   display: flex;
   `
   const CharacterInfo = styled.div`
-  border: 1px solid black;
+  border: 3px solid white;
   padding: 20px;
   margin-left: 10%;
   border-radius: 25px;
+  color: white;
   `
 
   return (
