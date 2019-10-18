@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function CharacterCard( {char} ) {
-  console.log(char)
   return (
     <div className='character-card'>
       <img src={char.image} alt={`${char.name}`} />
